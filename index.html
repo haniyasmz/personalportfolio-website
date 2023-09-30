@@ -4,40 +4,86 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Personal Portfolio website</title>
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
 <body>
-    <header class="header">
-        <a href="#home" class="logo">Hani.</a>
+    <header>
         <nav class="navbar">
-            <a href="#home"class="active">HOME</a>
-            <a href="#about">ABOUT</a>
-            <a href="#portfolio">MY PROJECTS</a>
-            <a href="#education">EDUCATION</a>
-            <a href="#contact">CONTACT</a>
+            <div class="logo"><a href="#home">Hani.</a></div>
+            <ul class="links">
+                <li><a href="#home"class="active">HOME</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#portfolio">MY PROJECTS</a></li>
+                <li><a href="#education">EDUCATION</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+
+            </ul>
+            <div class="toggle_btn">
+                <i class="fa-solid fa-bars"></i>
+
+            </div>
         </nav>
+
+        <div class="dropdown_menu">
+            <li><a href="#home"class="active">HOME</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#portfolio">MY PROJECTS</a></li>
+            <li><a href="#education">EDUCATION</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+        </div>
     </header>
 
+    <script>
+        const toggleBtn = document.querySelector('.toggle_btn')
+        const toggleBtnIcon = document.querySelector('.toggle_btn i')
+        const dropDownMenu = document.querySelector('.dropdown_menu')
+
+        toggleBtn.onclick = function(){
+            dropDownMenu.classList.toggle('open')
+            const isOpen = dropDownMenu.classList.contains('open')
+
+            toggleBtnIcon.classList = isOpen
+            ? 'fa-solid fa-xmark'
+            : 'fa-solid fa-bars'
+        }
+    </script>
+ 
     <section class="home" id="home">
         <div class="home-content">
-            <h1>Hi! I'm Hani Yasmin</h1>
-            <h3>Data Science Student</h3>
-            <p>This is my official portfolio website to show all details and project I have done as a Data Science Student
-            </p>
-            <div class="btn-box">
-                <a href="file/Resume-Hani-Yasmin-Murnizam.pdf" download="">Download CV</a>
+    
+        </div>
+
+        <div class="row-home">
+            <div class="home-left">
+                <div class="home-left-content">
+                    <h1>Hi! I'm Hani Yasmin</h1>
+                    <h3>Data Science Student</h3>
+                    <p>This is my official portfolio website to show all details and project I have done as a Data Science Student
+                    </p> 
+
+                    <div class="btn-box">
+                        <a href="file/Resume-Hani-Yasmin-Murnizam.pdf" download="">Download CV</a>
+                    </div>
+
+                </div>
+                
             </div>
+            <div class="home-right">
+                <img src="images/shape2.png" class="shape" >
+                <img src="images/hani2.png" class="girl">
 
+                
+                
+                
+            </div>
         </div>
-
-        <div class="images">
-            <img src="/Users/hanimurnizam/Documents/HYM/HaniPortfolio/images/shape2.png" class="shape" >
-            <img src="/Users/hanimurnizam/Documents/HYM/HaniPortfolio/images/hani2.png" class="girl">
-
-        </div>
+        
     </section>
 
     <section class="about" id="about">
@@ -57,67 +103,71 @@
     <section class="portfolio" id="portfolio">
         <div class="portfolio-content">
             <h1>PROJECTS I HAVE WORKED ON</h1>
-            <div class="portfolio-content-1" id="growball">
-                <div class="left-div">
-                    <h2>Growball Cinemax Website Reimagined</h2>
-                    <p>This UI/UX website  was designed by my Team and I for our Group Assignment for the 
-                        Subject <subject> KT34503 Human Computer Interaction</subject>. This Interface design aims to
-                        improve the existing <a href="https://growball.com/index02.php"> Growball Cinemax Website</a> . The weakness of the existing website is studied,
-                        interviews and questionnaire are done to ask users what they would want to improve in a new website design. 
-                        The new interface design includes a Movie Booking System, Food Ordering System, and a Karaoke Booking System
-                        which are not available in the existing website. 
-                        <br>
-                        <br>
-                        The redesigned website interface aims to provide users with effortless access, 
-                        ensuring a user-friendly experience even for first-time visitors, minimizing the learning curve.
-                        <br>
-                        <br>
-                        The website interface is designed using Figma, a famous collaborative web application for interface design.
-                    </p>
-        
-                </div>
-                <div class="right-div">
-                    <div class="images_portfolio">
-                        <img src="/Users/hanimurnizam/Documents/HYM/Hani Portfolio/images/Growball Reimagined.png" class="growball_pic">
 
-                        <div class="btn-box">
-                            <a href="https://www.figma.com/community/file/1288417756900934354/growball-cinemax-website-reimagined">Visit Design</a>
-                        </div>
+            <div class="row">
+                <div class="left-portfolio">
+                    <div class="left-content">
+                        <h2>Growball Cinemax Website Reimagined</h2>
+                        <br>
+                        <p>This UI/UX website  was designed by my Team and I for our Group Assignment for the 
+                            Subject <subject> KT34503 Human Computer Interaction</subject>. This Interface design aims to
+                            improve the existing <a href="https://growball.com/index02.php"> Growball Cinemax Website</a> . The weakness of the existing website is studied,
+                            interviews and questionnaire are done to ask users what they would want to improve in a new website design. 
+                            The new interface design includes a Movie Booking System, Food Ordering System, and a Karaoke Booking System
+                            which are not available in the existing website. 
+                            <br>
+                            <br>
+                            The redesigned website interface aims to provide users with effortless access, 
+                            ensuring a user-friendly experience even for first-time visitors, minimizing the learning curve.
+                            <br>
+                            <br>
+                            The website interface is designed using Figma, a famous collaborative web application for interface design.
+                        </p> 
                     </div>
                     
-                </div> 
-
-            </div>
-        </div>
-
-        <div class="portfolio-content-2" id="nearbyapp">
-                <div class="left-div">
-                    <h2>HUAWEI Mobile Service App: Nearby Search App</h2>
-                    <p>This app was developed when I attended the HUAWEI Mobile Service Foundation Course. This app was created using Android Studio
-                        and the programming language Java. This application will help user find the nearest place that they would want to visit. 
-                        <br>
-                        <br>
-                        It is suitable for traveling users who are not familiar with the place that they are visiting. 
-                        The application can gelp users find the post office, nearby restaurant, the nearest restroom on a long drive, and 
-                        the nearest cinema. 
-                    </p>
-    
-
                 </div>
-                <div class="right-div">
-                    <div class="images_portfolio">
-                        <img src="/Users/hanimurnizam/Documents/HYM/Hani Portfolio/images/Nearby Search App.png" class="nearbysearchapp" >
+                <div class="right-portfolio">
+                    <img src="images/Growball Reimagined.png" alt="">
 
-                        <div class="btn-box">
-                            <a href="https://appgallery.huawei.com/app/C104778937">Visit Application </a>
-                        </div>
+                    <div class="button-container">
+                        <a href="https://www.figma.com/community/file/1288417756900934354/growball-cinemax-website-reimagined" class="btn-box" >Visit Design</a>
 
+
+                        
                     </div>
-
+                    
                 </div>
-                
+            </div>
+
+            <div class="row">
+                <div class="left-portfolio">
+                    <div class="left-content">
+                        <h2>HUAWEI Mobile Service App: Nearby Search App</h2>
+                        <br>
+                        <p>This app was developed when I attended the HUAWEI Mobile Service Foundation Course. This app was created using Android Studio
+                            and the programming language Java. This application will help user find the nearest place that they would want to visit. 
+                            <br>
+                            <br>
+                            It is suitable for traveling users who are not familiar with the place that they are visiting. 
+                            The application can gelp users find the post office, nearby restaurant, the nearest restroom on a long drive, and 
+                            the nearest cinema. 
+                        </p>    
+                    </div>
+                    
+                </div>
+                <div class="right-portfolio">
+                    <img src="images/Nearby Search App.png" alt="">
+
+                    <div class="button-container">
+                        <a href="https://appgallery.huawei.com/app/C104778937" class="btn-box" >Visit Application</a>
+                    </div>
+                    
+                </div>
+            </div>
 
         </div>
+
+        
         
     </section>
 

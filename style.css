@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
 
-
-
 *{
     margin: 0;
     padding: 0;
@@ -10,30 +8,14 @@
     
 }
 
+li{
+    list-style: none;
+}
+
 body{
     background: #8BACAA;
     color: black;
-}
-
-.header{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 5px 10%;
-    background: #8BACAA;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
-
-}
-
-.logo{
-    font-size: 25px;
-    color: #B04759;
-    text-decoration: none;
-    font-weight: 700;
+    overflow: scroll;
 }
 
 .navbar a{
@@ -49,41 +31,132 @@ body{
     color: #FFF5E0;
      
 }
+/*HEADER*/
 
-nav{ 
-    display: flex;
-    width: 84%;
-    margin: auto;
-    padding: 20px 0;
-    align-items: center;
-    justify-content: space-evenly;
+header{
+    position: sticky;
+    top: 0;
+    padding: 5px 10%;
+    max-width: 100%;
+    background: #8BACAA;
+    z-index: 1000;
 }
 
-/*home*/
+.navbar{
+    width: 100%;
+    height: 60px;
+    max-width: 100%;
+    top: 0;
+    position: sticky;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
+.navbar .logo a{
+    font-size: 35px;
+    color: #B04759;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.navbar .links{
+    display: flex;
+    gap: 2rem;
+}
+
+.navbar .toggle_btn{
+    color: #B04759;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+    
+}
+
+
+/* DROPDOWN MENU */
+
+.dropdown_menu{
+    display: none;
+    position: absolute;
+    right: 2rem;
+    top: 60px;
+    height: 0;
+    width: 100%;
+    background: #8BACAA;
+    background-color: #8BACAA;
+    backdrop-filter: blur(15px) ;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) ;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.dropdown_menu a{
+    font-size: 18px;
+    color: #B04759;
+    text-decoration: none;
+    font-weight: 700;
+    margin-left: 35px;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropdown_menu.open{
+    height: 240px;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropdown_menu li{
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* RESPONSIVE DESIGN */
+@media(max-width: 992px){
+    .navbar .links{ 
+        display: none;
+    }
+
+    .navbar .toggle_btn{
+        display: block;
+    }
+
+    .dropdown_menu{
+        display: block;  
+      }
+    
+    
+
+    
+}
+
+@media(max-width: 576px){
+    .dropdown_menu{
+        left: 2rem;
+        width: unset;
+    }
+
+    
+
+}
+
+
+/* HOME */
 .home{
     background: #FFF5E0;
-    height: 100vh;
+    height: calc(100vh-60px);
     display: flex;
+    flex-direction: column;
     align-items: center;
-    padding: 0 10%;
-}
-
-.home-content{
-    max-width: 560px;
-}
-
-.home-content h1{
-    font-size: 56px;
-    font-weight: 700;
-    color: #8BACAA;
-    line-height: 1.2;
-}
-
-.home-content h3{
-    font-size: 32px;
-    font-weight: 700;
-    color: #F99B7D;
+    padding: 0 5%;
+    max-width: 100%;
 }
 
 .home-content p{
@@ -93,14 +166,13 @@ nav{
     text-align: justify;
     font-weight: 600;
 }
-
+/*button*/
 .home-content .btn-box{
     display: flex;
     justify-content: center;
     width: 345px;
     height: 50px;
 }
-
 
 .btn-box a{
     position: relative;
@@ -133,7 +205,6 @@ nav{
     width: 0;
     height: 100%;
     background: #B04759;
-    
     z-index: -1;
     transition: .5s;
 }
@@ -143,71 +214,111 @@ nav{
     border: 2px solid #B04759;
 }
 
-/* images next to name */
-
-.images{
-    width: 30%;
-    height: 75%;
-    position: absolute;
-    bottom: 0%;
-    right:148px;
-
+.row-home{
+    width: 100%;
+    max-width: 1170px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 50px 30px;
+    padding: 10% 5%;
 }
 
-.images img{
-    height: 100%;
+.row-home .home-right{
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    overflow: visible;
+}
+
+.row-home .home-right img{
+    width: 110%;  /*Set the image width to 100% of its container */
+    height: 110%;
+    object-fit: contain;
     position: absolute;
     left: 50%;
     bottom: 0;
     transform: translateX(-50%);
     transition: bottom 1s, left 1s;
+    z-index: 2;
 
 }
 
-.images .shape{
-    bottom: 40px;
+.home-right .shape{
+    bottom: 5%;
 }
-.images:hover .shape{
-    bottom: 60px;
+.home-right:hover .shape{
+    bottom: 8%;
 }
-.images:hover .girl{
-    left: 45%;
+.home-right:hover .girl{
+    left: 46%;
+}
+
+.row-home .home-left .home-left-content{
+    padding-left: 20px;
+}
+
+.row-home .home-left .home-left-content h1{
+    font-size: 56px;
+    font-weight: 700;
+    color: #8BACAA;
+    line-height: 1.2;
+}
+
+.row-home .home-left .home-left-content h3{
+    font-size: 32px;
+    font-weight: 700;
+    color: #F99B7D;
+}
+
+.row-home .home-left .home-left-content p{
+    font-size: 16px;
+    margin: 20px 0 40px;
+    color: #555;
+    text-align: justify;
+    font-weight: 600;
+}
+
+@media (max-width: 991px){
+    .row-home .home-left .home-left-content{
+        padding-left: 0;
+    }
+}
+
+@media (max-width: 768px){
+    .row-home{
+        width: 90%;
+        grid-template-columns: 1fr;
+    }
 }
 
 /* section 1: about*/
-
 .about{
     display: flex;
-    justify-content: flex-start;
-    padding: 5% 5%; /* Add padding to the top and bottom */
+    height: calc(100vh-60px);
     flex-direction: column;
+    align-items: center;
+    padding: 5% 10%; /* Add padding to the top and bottom */
+    background: #8BACAA;
 }
 
 .about .about-content{
-    max-width: 1300px;
-    text-align: center;
-    align-items: center;
-    margin: 0 auto;
-
-   
-
+    max-width: 100%;
+    padding: 1% 0;
 }
 
-
-.about .about-content h1{
+.about-content h1{
     font-family: 'Poppins';
     font-size: 50px;
     font-weight: 700;
     color: #B04759;
+    line-height: 1.2;
     text-align: center;
-    background-color: transparent;
     padding: 5px;
     position: relative;
-    display: flex; /*what does this do*/
     justify-content: center;
     align-items: center;
-    width: 1300px;
-    height: 100px;
 }
 
 .about-content p{
@@ -216,76 +327,40 @@ nav{
     color: black;
     text-align: center;
     font-weight: 400;
-    
 }
 
 /* section2: portfolio */
 
 .portfolio{
     display: flex;
+    height: calc(100vh-60px);
+    align-items: center;
     justify-content: flex-start;
-    padding: 5% 5%; /* Add padding to the top and bottom */
+    padding: 5% 0; /* Add padding to the top and bottom */
     flex-direction: column;
     background: #FFF5E0;
+    max-width: 100%;
 }
 
 .portfolio .portfolio-content{
-    max-width: 1300px;
-    text-align: center;
-    align-items: center;
-    margin: 0 auto;
-    
+    max-width: 100%;
+    display: grid;
+    place-items: center;
+    padding: 3% 3%;
 }
 
-
-.portfolio .portfolio-content h1{
+.portfolio-content h1{
     font-family: 'Poppins';
     font-size: 50px;
     font-weight: 700;
     color: #B04759;
+    line-height: 1.2;
     text-align: center;
-    background-color: transparent;
-    padding: 5px;
+    padding: 5px 5px;
     position: relative;
-    display: flex; /*what does this do*/
     justify-content: center;
     align-items: center;
-    width: 1300px;
-    height: 100px;
-}
-
-.portfolio .portfolio-content-1 {
-    display: flex;
-    width: 1300px;
-    height: 68vh;
-    background: transparent;
-    margin-bottom: 20px;
-}
-
-.portfolio .portfolio-content-1 .left-div{
-    width: 55%; /* Each div takes up 50% of the container's width */
-    padding: 10px; /* Optional padding for spacing */
-    box-sizing: border-box; /* Include padding and border in the width */
-    justify-content: center;
-}
-
-.portfolio .portfolio-content-1 .left-div h2{
-    font-size: 40px;
-    font-weight: 700;
-    color: #8BACAA;
-    padding: 3%;
-    text-align: left;
-
-}
-
-.portfolio .portfolio-content-1 .left-div p{
-    font-size: 16px;
-    margin: 20px 0 40px;
-    color: #555;
-    text-align: justify;
-    padding: 3%;
-    font-family: 'Poppins';
-    line-height: 1.5;
+    display: flex; 
 
 }
 
@@ -295,14 +370,6 @@ a {
     font-family: 'Poppins';
   }
 
-.portfolio .portfolio-content-1 .right-div {
-    width: 45%; /* Each div takes up 50% of the container's width */
-    padding: 10px; /* Optional padding for spacing */
-    box-sizing: border-box; /* Include padding and border in the width */
-    justify-content: center
-}
-
-
 subject{
     font-weight: bold;
     font-family: 'Poppins';
@@ -310,207 +377,129 @@ subject{
 }
 
 /*images for portfolio*/
-.portfolio-content-1 .right-div .images_portfolio{
-    position: relative; /* Change to relative to make it a reference for child elements */
-    padding: 2%;
-    width: 570px; /* Set a fixed width or adjust as needed */
-    height: 380px; /* Set a fixed height or adjust as needed */
-    justify-content: center
+
+.row{
+    width: 100%;
+    max-width: 1170px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 50px 30px;
+    padding: 3% 0;
 }
 
-.portfolio-content-1 .right-div .images_portfolio img{
-    position: absolute;
-    top: 57%; /* Adjust the percentage to vertically center the image */
-    left: 50%; /* Adjust the percentage to horizontally center the image */
-    transform: translate(-50%, -50%); /* Center the image precisely */
-    max-width: 100%;
-    max-height: 100%;
-    padding: 1%;
-    justify-content: center
+.row .right-portfolio{
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+.row .right-portfolio img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
 
-.portfolio .portfolio-content-1 .right-div .btn-box{
-    width: 345px;
-    height: 50px;
+/*button*/
+
+.button-container{
+    margin-top: 8px;
+}
+
+.row .right-portfolio .button-container .btn-box{
     position: relative;
-    top: 114%; /* Adjust the percentage to vertically center the image */
-    left: 18%; /* Adjust the percentage to horizontally center the image */
-    justify-content: center
+    align-items: center;
+    justify-content: center;
 }
 
-.portfolio .portfolio-content-1 .right-div .btn-box a{
+.row .right-portfolio .button-container a{
     position: relative;
     display: inline-flex; /*what does this do*/
     justify-content: center;
     align-items: center;
-    width: 200px;
+    width: 130%;
     height: 80%;
     background: #E76161;
     border: 2px solid #E76161;
-    border-radius: 8px;
+    border-radius: 6px;
     font-size: 19px;
     color: whitesmoke;
     text-decoration: none;
     font-weight: 600;
     letter-spacing: 1px;
-    padding: 5px;
+    padding: 5%;
     z-index: 1;
     overflow: hidden;
-    transition: .5s;
-
+    transition: .5s;  
 }
 
-.portfolio .portfolio-content-1 .right-div .btn-box a::before{
+.row .right-portfolio .button-container a::before{
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 0;
     height: 100%;
-    background: #F99B7D;
-    
     z-index: -1;
+    background: #F99B7D;
     transition: .5s;
 }
 
-.portfolio .portfolio-content-1 .right-div .btn-box a:hover::before{
+.row .right-portfolio .button-container a:hover::before{
     width: 100%;
     border: 2px solid #F99B7D;
 }
 
-.portfolio .portfolio-content-2{
-    display: flex;
-    width: 1300px;
-    height: 58vh;
-    margin-bottom: 20px;
+.row .left-portfolio .left-content{
+    padding-left: 20px;
 }
 
-.portfolio .portfolio-content-2 .left-div{
-    width: 55%; /* Each div takes up 50% of the container's width */
-    padding: 10px; /* Optional padding for spacing */
-    box-sizing: border-box; /* Include padding and border in the width */
-    justify-content: center;
-}
-
-.portfolio .portfolio-content-2 .left-div h2{
+.row .left-portfolio .left-content h2{
     font-size: 40px;
     font-weight: 700;
     color: #8BACAA;
-    padding: 3%;
-    text-align: left;
-
+    text-align: center;
 }
 
-.portfolio .portfolio-content-2 .left-div p{
+.row .left-portfolio .left-content p{
     font-size: 16px;
-    margin: 20px 0 40px;
-    color: #555;
+    line-height: 26px;
+    padding-bottom: 15px;
     text-align: justify;
-    padding: 3%;
-    font-family: 'Poppins';
-    line-height: 1.5;
-
 }
 
-.portfolio .portfolio-content-2 .right-div {
-    width: 45%; /* Each div takes up 50% of the container's width */
-    padding: 10px; /* Optional padding for spacing */
-    box-sizing: border-box; /* Include padding and border in the width */
-    justify-content: center;
+@media (max-width: 991px){
+    .row .left-portfolio .left-content{
+        padding-left: 0;
+    }
 }
 
-.portfolio-content-2 .right-div .images_portfolio{
-    position: relative; /* Change to relative to make it a reference for child elements */
-    padding: 2%;
-    width: 570px; /* Set a fixed width or adjust as needed */
-    height: 380px; /* Set a fixed height or adjust as needed */
-    justify-content: center
+@media (max-width: 768px){
+    .row{
+        width: 90%;
+        grid-template-columns: 1fr;
+    }
 }
 
-.portfolio-content-2 .right-div .images_portfolio img{
-    position: absolute;
-    top: 48%; /* Adjust the percentage to vertically center the image */
-    left: 50%; /* Adjust the percentage to horizontally center the image */
-    transform: translate(-50%, -50%); /* Center the image precisely */
-    max-width: 100%;
-    max-height: 100%;
-    padding: 1%;
-    justify-content: center
-}
-
-.portfolio .portfolio-content-2 .right-div .btn-box{
-    width: 345px;
-    height: 50px;
-    position: relative;
-    align-items: center;
-    justify-content: center;
-    left: 32%; /* Adjust the percentage to horizontally center the image */
-    top: 96%
-}
-
-.portfolio .portfolio-content-2 .right-div .btn-box a{
-    position: relative;
-    display: inline-flex; /*what does this do*/
-    justify-content: center;
-    align-items: center;
-    width: 200px;
-    height: 90%;
-    background: #E76161;
-    border: 2px solid #E76161;
-    border-radius: 8px;
-    font-size: 19px;
-    color: whitesmoke;
-    text-decoration: none;
-    font-weight: 600;
-    letter-spacing: 1px;
-    padding: 5px;
-    z-index: 1;
-    overflow: hidden;
-    transition: .5s;
-
-}
-
-.portfolio .portfolio-content-2 .right-div .btn-box a::before{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background: #F99B7D;
-    
-    z-index: -1;
-    transition: .5s;
-}
-
-.portfolio .portfolio-content-2 .right-div .btn-box a:hover::before{
-    width: 100%;
-    border: 2px solid #F99B7D;
-}
 
 /* education*/
 
 .education{
     
-    /*height: 90vh;
     display: flex;
-    justify-content: center;
-    padding: 20px 10%;*/
-
-    display: flex;
+    height: calc(100vh-60px);
     justify-content: flex-start;
     padding: 5% 5%; /* Add padding to the top and bottom */
     flex-direction: column;
-    
+    align-items: center;
+    justify-content: flex-start;
+    max-width: 100%;       
 }
 
 .education-content{
-    max-width: 1300px;
-    text-align: center;
-    align-items: center;
+    width: 100%;
     margin: 0 auto;
-
+    padding: 3% 3%;
 }
 
 .education .education-content h1{
@@ -525,25 +514,23 @@ subject{
     display: flex; /*what does this do*/
     justify-content: center;
     align-items: center;
-    width: 1300px;
-    height: 100px;
 }
+
 
 .education .education-content .timeline{
     position: relative;
-    max-width: 1200px;
-    margin: 100px auto;
-    color: #3e3c3c;
+    width: 100%;
+    margin: 20px 0;
 }
 
 .container{
-    padding: 10px 50px;
+    padding: 20px 50px;
     position: relative;
     width: 50%; 
 } 
 
 .text-box{
-    padding: 20px 20px;
+    padding: 10% 10%;
     background: #FFF5E0;
     position: relative;
     border-radius: 6px;
@@ -571,7 +558,6 @@ subject{
     left: -20px
 }
 
- 
 .education .education-content .timeline::after{
     content: '';
     position: absolute;
@@ -588,12 +574,21 @@ subject{
 
 /*contact*/
 
+
+
 .contact{
-    height: 50vh;
     display: flex;
-    justify-content: center;
-    padding: 20px 10%;
+    height: calc(100vh-60px);
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 5% 10%;
     background: #FFF5E0;
+    max-width: 100%;
+}
+
+.contact .contact-content{
+    max-width: 100%;
+    margin: 0 auto;
 }
 
 .contact .contact-content h1{
@@ -608,28 +603,56 @@ subject{
     display: flex; /*what does this do*/
     justify-content: center;
     align-items: center;
-    width: 1300px;
-    height: 100px;
 }
 
-.three-container{
+
+.three-container {
     display: flex;
+    flex-wrap: wrap; /* Allow containers to wrap to the next row on small screens */
     justify-content: space-between;
     align-items: flex-start;
     width: 100%;
-    height: 30vh;
+    min-height: 30vh; /* Use min-height for flexibility */
     background-color: transparent;
     padding: 20px;
 }
 
-.box{
+.box {
     background-color: transparent;
     padding: 20px;
     text-align: center;
     flex: 1;
     margin: 0 10px;
+    max-width: calc(33.33% - 20px); /* Distribute containers evenly in a row */
 }
 
+.three-container h3{
+    font-family: 'Poppins';
+    font-size: 16px;
+    font-weight: 700;
+    color: #B04759;
+    text-align: center;
+    background-color: transparent;
+    padding: 5px;
+    position: relative;
+    display: flex; /*what does this do*/
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 768px) {
+    .box {
+        max-width: 100%; /* Two containers per row on smaller screens */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .box {
+        max-width: 100%; /* One container per row on even smaller screens */
+    }
+}
 
 
 
