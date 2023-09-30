@@ -1,0 +1,658 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    
+}
+
+body{
+    background: #8BACAA;
+    color: black;
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 5px 10%;
+    background: #8BACAA;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+
+}
+
+.logo{
+    font-size: 25px;
+    color: #B04759;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.navbar a{
+    font-size: 18px;
+    color: #B04759;
+    text-decoration: none;
+    font-weight: 700;
+    margin-left: 35px;
+}
+
+.navbar a:hover,
+.navbar a:active{
+    color: #FFF5E0;
+     
+}
+
+nav{ 
+    display: flex;
+    width: 84%;
+    margin: auto;
+    padding: 20px 0;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/*home*/
+
+.home{
+    background: #FFF5E0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+}
+
+.home-content{
+    max-width: 560px;
+}
+
+.home-content h1{
+    font-size: 56px;
+    font-weight: 700;
+    color: #8BACAA;
+    line-height: 1.2;
+}
+
+.home-content h3{
+    font-size: 32px;
+    font-weight: 700;
+    color: #F99B7D;
+}
+
+.home-content p{
+    font-size: 16px;
+    margin: 20px 0 40px;
+    color: #555;
+    text-align: justify;
+    font-weight: 600;
+}
+
+.home-content .btn-box{
+    display: flex;
+    justify-content: center;
+    width: 345px;
+    height: 50px;
+}
+
+
+.btn-box a{
+    position: relative;
+    display: inline-flex; /*what does this do*/
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 80%;
+    background: #8BACAA;
+    border: 2px solid #8BACAA;
+    border-radius: 8px;
+    font-size: 19px;
+    color: whitesmoke;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 5px;
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
+    font-family: 'Poppins';
+
+}
+
+.btn-box a::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #B04759;
+    
+    z-index: -1;
+    transition: .5s;
+}
+
+.btn-box a:hover::before{
+    width: 100%;
+    border: 2px solid #B04759;
+}
+
+/* images next to name */
+
+.images{
+    width: 30%;
+    height: 75%;
+    position: absolute;
+    bottom: 0%;
+    right:148px;
+
+}
+
+.images img{
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    transition: bottom 1s, left 1s;
+
+}
+
+.images .shape{
+    bottom: 40px;
+}
+.images:hover .shape{
+    bottom: 60px;
+}
+.images:hover .girl{
+    left: 45%;
+}
+
+/* section 1: about*/
+
+.about{
+    display: flex;
+    justify-content: flex-start;
+    padding: 5% 5%; /* Add padding to the top and bottom */
+    flex-direction: column;
+}
+
+.about .about-content{
+    max-width: 1300px;
+    text-align: center;
+    align-items: center;
+    margin: 0 auto;
+
+   
+
+}
+
+
+.about .about-content h1{
+    font-family: 'Poppins';
+    font-size: 50px;
+    font-weight: 700;
+    color: #B04759;
+    text-align: center;
+    background-color: transparent;
+    padding: 5px;
+    position: relative;
+    display: flex; /*what does this do*/
+    justify-content: center;
+    align-items: center;
+    width: 1300px;
+    height: 100px;
+}
+
+.about-content p{
+    font-size: 16px;
+    margin: 20px 0 40px;
+    color: black;
+    text-align: center;
+    font-weight: 400;
+    
+}
+
+/* section2: portfolio */
+
+.portfolio{
+    display: flex;
+    justify-content: flex-start;
+    padding: 5% 5%; /* Add padding to the top and bottom */
+    flex-direction: column;
+    background: #FFF5E0;
+}
+
+.portfolio .portfolio-content{
+    max-width: 1300px;
+    text-align: center;
+    align-items: center;
+    margin: 0 auto;
+    
+}
+
+
+.portfolio .portfolio-content h1{
+    font-family: 'Poppins';
+    font-size: 50px;
+    font-weight: 700;
+    color: #B04759;
+    text-align: center;
+    background-color: transparent;
+    padding: 5px;
+    position: relative;
+    display: flex; /*what does this do*/
+    justify-content: center;
+    align-items: center;
+    width: 1300px;
+    height: 100px;
+}
+
+.portfolio .portfolio-content-1 {
+    display: flex;
+    width: 1300px;
+    height: 68vh;
+    background: transparent;
+    margin-bottom: 20px;
+}
+
+.portfolio .portfolio-content-1 .left-div{
+    width: 55%; /* Each div takes up 50% of the container's width */
+    padding: 10px; /* Optional padding for spacing */
+    box-sizing: border-box; /* Include padding and border in the width */
+    justify-content: center;
+}
+
+.portfolio .portfolio-content-1 .left-div h2{
+    font-size: 40px;
+    font-weight: 700;
+    color: #8BACAA;
+    padding: 3%;
+    text-align: left;
+
+}
+
+.portfolio .portfolio-content-1 .left-div p{
+    font-size: 16px;
+    margin: 20px 0 40px;
+    color: #555;
+    text-align: justify;
+    padding: 3%;
+    font-family: 'Poppins';
+    line-height: 1.5;
+
+}
+
+a {
+    color: #555;
+    font-weight: normal;
+    font-family: 'Poppins';
+  }
+
+.portfolio .portfolio-content-1 .right-div {
+    width: 45%; /* Each div takes up 50% of the container's width */
+    padding: 10px; /* Optional padding for spacing */
+    box-sizing: border-box; /* Include padding and border in the width */
+    justify-content: center
+}
+
+
+subject{
+    font-weight: bold;
+    font-family: 'Poppins';
+
+}
+
+/*images for portfolio*/
+.portfolio-content-1 .right-div .images_portfolio{
+    position: relative; /* Change to relative to make it a reference for child elements */
+    padding: 2%;
+    width: 570px; /* Set a fixed width or adjust as needed */
+    height: 380px; /* Set a fixed height or adjust as needed */
+    justify-content: center
+}
+
+.portfolio-content-1 .right-div .images_portfolio img{
+    position: absolute;
+    top: 57%; /* Adjust the percentage to vertically center the image */
+    left: 50%; /* Adjust the percentage to horizontally center the image */
+    transform: translate(-50%, -50%); /* Center the image precisely */
+    max-width: 100%;
+    max-height: 100%;
+    padding: 1%;
+    justify-content: center
+}
+
+
+.portfolio .portfolio-content-1 .right-div .btn-box{
+    width: 345px;
+    height: 50px;
+    position: relative;
+    top: 114%; /* Adjust the percentage to vertically center the image */
+    left: 18%; /* Adjust the percentage to horizontally center the image */
+    justify-content: center
+}
+
+.portfolio .portfolio-content-1 .right-div .btn-box a{
+    position: relative;
+    display: inline-flex; /*what does this do*/
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 80%;
+    background: #E76161;
+    border: 2px solid #E76161;
+    border-radius: 8px;
+    font-size: 19px;
+    color: whitesmoke;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 5px;
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
+
+}
+
+.portfolio .portfolio-content-1 .right-div .btn-box a::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #F99B7D;
+    
+    z-index: -1;
+    transition: .5s;
+}
+
+.portfolio .portfolio-content-1 .right-div .btn-box a:hover::before{
+    width: 100%;
+    border: 2px solid #F99B7D;
+}
+
+.portfolio .portfolio-content-2{
+    display: flex;
+    width: 1300px;
+    height: 58vh;
+    margin-bottom: 20px;
+}
+
+.portfolio .portfolio-content-2 .left-div{
+    width: 55%; /* Each div takes up 50% of the container's width */
+    padding: 10px; /* Optional padding for spacing */
+    box-sizing: border-box; /* Include padding and border in the width */
+    justify-content: center;
+}
+
+.portfolio .portfolio-content-2 .left-div h2{
+    font-size: 40px;
+    font-weight: 700;
+    color: #8BACAA;
+    padding: 3%;
+    text-align: left;
+
+}
+
+.portfolio .portfolio-content-2 .left-div p{
+    font-size: 16px;
+    margin: 20px 0 40px;
+    color: #555;
+    text-align: justify;
+    padding: 3%;
+    font-family: 'Poppins';
+    line-height: 1.5;
+
+}
+
+.portfolio .portfolio-content-2 .right-div {
+    width: 45%; /* Each div takes up 50% of the container's width */
+    padding: 10px; /* Optional padding for spacing */
+    box-sizing: border-box; /* Include padding and border in the width */
+    justify-content: center;
+}
+
+.portfolio-content-2 .right-div .images_portfolio{
+    position: relative; /* Change to relative to make it a reference for child elements */
+    padding: 2%;
+    width: 570px; /* Set a fixed width or adjust as needed */
+    height: 380px; /* Set a fixed height or adjust as needed */
+    justify-content: center
+}
+
+.portfolio-content-2 .right-div .images_portfolio img{
+    position: absolute;
+    top: 48%; /* Adjust the percentage to vertically center the image */
+    left: 50%; /* Adjust the percentage to horizontally center the image */
+    transform: translate(-50%, -50%); /* Center the image precisely */
+    max-width: 100%;
+    max-height: 100%;
+    padding: 1%;
+    justify-content: center
+}
+
+.portfolio .portfolio-content-2 .right-div .btn-box{
+    width: 345px;
+    height: 50px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    left: 32%; /* Adjust the percentage to horizontally center the image */
+    top: 96%
+}
+
+.portfolio .portfolio-content-2 .right-div .btn-box a{
+    position: relative;
+    display: inline-flex; /*what does this do*/
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 90%;
+    background: #E76161;
+    border: 2px solid #E76161;
+    border-radius: 8px;
+    font-size: 19px;
+    color: whitesmoke;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 5px;
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
+
+}
+
+.portfolio .portfolio-content-2 .right-div .btn-box a::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #F99B7D;
+    
+    z-index: -1;
+    transition: .5s;
+}
+
+.portfolio .portfolio-content-2 .right-div .btn-box a:hover::before{
+    width: 100%;
+    border: 2px solid #F99B7D;
+}
+
+/* education*/
+
+.education{
+    
+    /*height: 90vh;
+    display: flex;
+    justify-content: center;
+    padding: 20px 10%;*/
+
+    display: flex;
+    justify-content: flex-start;
+    padding: 5% 5%; /* Add padding to the top and bottom */
+    flex-direction: column;
+    
+}
+
+.education-content{
+    max-width: 1300px;
+    text-align: center;
+    align-items: center;
+    margin: 0 auto;
+
+}
+
+.education .education-content h1{
+    font-family: 'Poppins';
+    font-size: 50px;
+    font-weight: 700;
+    color: #B04759;
+    text-align: center;
+    background-color: transparent;
+    padding: 5px;
+    position: relative;
+    display: flex; /*what does this do*/
+    justify-content: center;
+    align-items: center;
+    width: 1300px;
+    height: 100px;
+}
+
+.education .education-content .timeline{
+    position: relative;
+    max-width: 1200px;
+    margin: 100px auto;
+    color: #3e3c3c;
+}
+
+.container{
+    padding: 10px 50px;
+    position: relative;
+    width: 50%; 
+} 
+
+.text-box{
+    padding: 20px 20px;
+    background: #FFF5E0;
+    position: relative;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.left-container{
+    left: 0;
+}
+
+.right-container{
+    left: 50%;
+}
+
+.container img{
+    position: absolute;
+    width: 40px;
+    border-radius: 50%;
+    right: -20px;
+    top: 32px;
+    z-index: 10;
+}
+
+.right-container img{
+    left: -20px
+}
+
+ 
+.education .education-content .timeline::after{
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 100%;
+    background: #FFF5E0;
+    top: 0;
+    left: 50%;
+    margin-left: -3px;
+    z-index: -1;
+    transform: translateX(-50%);
+
+}
+
+/*contact*/
+
+.contact{
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    padding: 20px 10%;
+    background: #FFF5E0;
+}
+
+.contact .contact-content h1{
+    font-family: 'Poppins';
+    font-size: 50px;
+    font-weight: 700;
+    color: #B04759;
+    text-align: center;
+    background-color: transparent;
+    padding: 5px;
+    position: relative;
+    display: flex; /*what does this do*/
+    justify-content: center;
+    align-items: center;
+    width: 1300px;
+    height: 100px;
+}
+
+.three-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    height: 30vh;
+    background-color: transparent;
+    padding: 20px;
+}
+
+.box{
+    background-color: transparent;
+    padding: 20px;
+    text-align: center;
+    flex: 1;
+    margin: 0 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
